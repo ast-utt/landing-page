@@ -1,0 +1,31 @@
+name: AST Landing Page CI Auto check commit
+
+# When actions run
+on:
+  push:
+    branches-ignore: [main]
+
+# Workflows
+jobs:
+  ci_run:
+    name: CI/CD workflows Push
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: Setup Node 16
+        uses: actions/setup-node@v2
+        with:
+          node-version: "16"
+
+      - name: Install dependencies
+        run: yarn --immutable
+
+      - name: Run ESLint
+        run: yarn run lint
+
+      - name: Run Tests Locally
+        run: yarn run test
+        continue-on-error: true
