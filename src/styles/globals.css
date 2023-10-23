@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* override html tags */
+@layer base {
+  h1 {
+    @apply font-bold font-roboto-slab leading-headline-1;
+    font-size: 64px;
+  }
+  h2 {
+    @apply text-5xl font-bold font-roboto-slab leading-headline-2;
+  }
+  h3 {
+    @apply text-2xl font-medium leading-headline-3;
+  }
+  a {
+    @apply text-base font-medium hover:text-primary-orange;
+  }
+}
+
+@import url('./typography.css');
